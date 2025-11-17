@@ -1,19 +1,14 @@
-import { ROLE_BADGE } from "../data/experienceRoleStyles";
+import { ROLE_BADGE } from "../styles/uiStyles";
+
+import { EXP_CARD, EXP_CARD_HEADER, EXP_PERIOD } from "../styles/uiStyles";
 
 export default function ExperienceCard({ org, role, period, bullets }) {
   return (
-    <article
-      className="
-        rounded-2xl
-        border border-gray-200 dark:border-white/10
-        bg-white dark:bg-white/5
-        shadow-sm dark:shadow-none
-        overflow-hidden
-      "
-    >
-      {/* header */}
-      <div className="flex items-center justify-between px-4 pt-4">
+    <article className={EXP_CARD}>
+      {/* Header */}
+      <div className={EXP_CARD_HEADER}>
         <h3 className="font-semibold">{org}</h3>
+
         <span
           className={`text-xs font-semibold rounded-full px-3 py-1 ${
             ROLE_BADGE[role] ||
@@ -24,10 +19,10 @@ export default function ExperienceCard({ org, role, period, bullets }) {
         </span>
       </div>
 
+      {/* Body */}
       <div className="px-4 pb-4">
-        <div className="mt-1 text-xs opacity-80 border-b border-gray-200 dark:border-white/10 pb-3">
-          {period}
-        </div>
+        <div className={EXP_PERIOD}>{period}</div>
+
         <ul className="mt-3 list-disc pl-5 space-y-2 leading-relaxed">
           {bullets.map((b, i) => (
             <li key={i}>{b}</li>

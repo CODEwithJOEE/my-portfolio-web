@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+// ⬅️ NEW imports
+import {
+  CERT_CARD,
+  CERT_IMG_WRAPPER,
+  CERT_MODAL_BACKDROP,
+  CERT_MODAL_BODY,
+} from "../styles/uiStyles";
+
 export default function CertCard({ title, issuer, date, img }) {
   const [show, setShow] = useState(false);
 
-  // Close on ESC for accessibility
   useEffect(() => {
     if (!show) return;
     const onKey = (e) => e.key === "Escape" && setShow(false);
@@ -14,19 +21,16 @@ export default function CertCard({ title, issuer, date, img }) {
 
   return (
     <>
+      {/* Card */}
       <article
         onClick={() => setShow(true)}
-        className="
-          rounded-2xl border border-gray-200 dark:border-white/10
-          bg-white dark:bg-white/5 shadow-sm dark:shadow-none
-          p-4 text-center cursor-pointer hover:bg-white/10 transition
-        "
+        className={CERT_CARD}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setShow(true)}
         aria-label={`Open certificate: ${title}`}
       >
-        <div className="mx-auto max-w-xs rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white/5">
+        <div className={CERT_IMG_WRAPPER}>
           <img
             src={img}
             alt={title}
@@ -49,7 +53,7 @@ export default function CertCard({ title, issuer, date, img }) {
       <AnimatePresence>
         {show && (
           <motion.div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
+            className={CERT_MODAL_BACKDROP}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -60,7 +64,7 @@ export default function CertCard({ title, issuer, date, img }) {
           >
             <motion.div
               onClick={(e) => e.stopPropagation()}
-              className="bg-white dark:bg-slate-900 p-4 rounded-2xl max-w-3xl w-[90%] text-center shadow-lg"
+              className={CERT_MODAL_BODY}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}

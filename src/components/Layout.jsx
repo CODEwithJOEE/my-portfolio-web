@@ -1,15 +1,9 @@
-import { CARD } from "../styles/uiStyles";
+import { CARD, LAYOUT_MAIN, LAYOUT_FOOTER } from "../styles/uiStyles";
+
 export default function Layout({ left, right, footer }) {
   return (
     <div>
-      <main
-        className="
-          mx-auto max-w-6xl px-4 py-6
-          grid gap-6
-          grid-cols-1
-          md:grid-cols-[320px_minmax(0,_1fr)]
-        "
-      >
+      <main className={LAYOUT_MAIN}>
         {/* Left column */}
         <Card className="p-0">{left}</Card>
 
@@ -18,7 +12,7 @@ export default function Layout({ left, right, footer }) {
       </main>
 
       {footer && (
-        <footer className="mx-auto max-w-6xl px-4 pb-10 text-xs opacity-70 text-slate-600 dark:text-slate-400">
+        <footer className={LAYOUT_FOOTER}>
           {footer} © {new Date().getFullYear()} Joe Portfolio. All rights
           reserved.
         </footer>

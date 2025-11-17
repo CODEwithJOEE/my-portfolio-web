@@ -1,3 +1,5 @@
+import { ACTION_PILL } from "../styles/uiStyles.js";
+
 export default function ActionPill({
   as = "a",
   href,
@@ -6,16 +8,11 @@ export default function ActionPill({
   children,
   "aria-label": ariaLabel,
 }) {
-  const base =
-    "inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm " +
-    "hover:bg-black/5 dark:hover:bg-white/5 transition " +
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50";
-
   if (as === "button") {
     return (
       <button
         onClick={onClick}
-        className={base}
+        className={ACTION_PILL}
         aria-label={ariaLabel}
         type="button"
       >
@@ -30,7 +27,7 @@ export default function ActionPill({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={base}
+      className={ACTION_PILL}
       aria-label={ariaLabel}
     >
       {Icon ? <Icon size={16} /> : null}

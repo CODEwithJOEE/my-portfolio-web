@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import MetricCard from "../components/MetricCard";
 
 import { projects } from "../data/projects";
-import { STATUS_STYLES } from "../data/projectStatusStyles";
-import { TECH_STYLES } from "../data/projectTechStyles";
+import { STATUS_STYLES, TECH_STYLES } from "../styles/uiStyles";
 
 import {
   CARD,

@@ -1,15 +1,25 @@
 import { useEffect, useMemo, useRef, useState, useId } from "react";
 import { Menu, X } from "lucide-react";
-import { HEADER_BAR } from "../styles/uiStyles";
+import {
+  HEADER_BAR,
+  HEADER_BRAND_BUTTON,
+  HEADER_DESKTOP_NAV,
+  HEADER_DESKTOP_LINK_BASE,
+  HEADER_DESKTOP_LINK_ACTIVE,
+  HEADER_DESKTOP_LINK_INACTIVE,
+  HEADER_MOBILE_TOGGLE,
+  HEADER_MOBILE_PANEL,
+  HEADER_MOBILE_ITEM,
+  HEADER_MOBILE_COLLAPSE,
+  HEADER_MOBILE_LINK_ACTIVE,
+  HEADER_MOBILE_LINK_INACTIVE,
+} from "../styles/uiStyles";
 
 export default function Header({
   brand = "JOE Portfolio",
   pages = [],
   active,
   onSelect,
-  // ⛔ remove dark / onToggleTheme:
-  // dark,
-  // onToggleTheme,
 }) {
   const [open, setOpen] = useState(false);
   const mdUp = useMediaQuery("(min-width: 768px)");
@@ -122,7 +132,7 @@ function Brand({ first, rest, onClick }) {
   return (
     <button
       type="button"
-      className="text-lg font-semibold tracking-wide hover:opacity-90 transition"
+      className={HEADER_BRAND_BUTTON}
       onClick={onClick}
       aria-label="Go to About"
     >
@@ -134,10 +144,7 @@ function Brand({ first, rest, onClick }) {
 /** Desktop navigation (visible only on md+) */
 function DesktopNav({ pages, active, onSelect }) {
   return (
-    <nav
-      className="hidden md:flex items-center gap-6 text-sm"
-      aria-label="Primary"
-    >
+    <nav className={HEADER_DESKTOP_NAV} aria-label="Primary">
       {pages.map((p) => (
         <button
           type="button"
@@ -145,10 +152,10 @@ function DesktopNav({ pages, active, onSelect }) {
           onClick={() => onSelect?.(p.id)}
           aria-current={active === p.id ? "page" : undefined}
           className={cx(
-            "transition hover:opacity-90",
+            HEADER_DESKTOP_LINK_BASE,
             active === p.id
-              ? "font-semibold underline underline-offset-4"
-              : "opacity-80"
+              ? HEADER_DESKTOP_LINK_ACTIVE
+              : HEADER_DESKTOP_LINK_INACTIVE
           )}
         >
           {p.label}
@@ -158,27 +165,12 @@ function DesktopNav({ pages, active, onSelect }) {
   );
 }
 
-/** Theme toggle button (light/dark) */
-function ThemeToggle({ dark, onToggle }) {
-  return (
-    <button
-      type="button"
-      onClick={onToggle}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition"
-      aria-label="Toggle theme"
-      title="Toggle theme"
-    >
-      {dark ? <Sun size={18} /> : <Moon size={18} />}
-    </button>
-  );
-}
-
 /** Mobile menu toggle (hamburger / close icon) */
 function MobileToggle({ open, onToggle, controlsId }) {
   return (
     <button
       type="button"
-      className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition"
+      className={HEADER_MOBILE_TOGGLE}
       onClick={onToggle}
       aria-label="Toggle menu"
       aria-expanded={open}
@@ -191,7 +183,6 @@ function MobileToggle({ open, onToggle, controlsId }) {
 
 /** Mobile navigation panel */
 const MobileNav = Object.assign(
-  // ForwardRef allows parent to detect clicks outside of menu
   (props, ref) => {
     const { open, pages, active, onSelect, id, ...rest } = props;
     return (
@@ -200,13 +191,13 @@ const MobileNav = Object.assign(
         ref={ref}
         {...rest}
         className={cx(
-          "md:hidden overflow-hidden transition-[max-height,opacity] duration-200 motion-reduce:transition-none",
+          HEADER_MOBILE_COLLAPSE,
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         )}
         aria-hidden={!open}
       >
-        <div className="mt-2 rounded-2xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/70 shadow-sm">
-          <ul className="py-2" role="menu" aria-label="Mobile">
+        <div className={HEADER_MOBILE_PANEL}>
+          <ul className="py-2" role="menu" aria-label="Mobile navigation">
             {pages.map((p) => (
               <li key={p.id} role="none">
                 <button
@@ -215,11 +206,16 @@ const MobileNav = Object.assign(
                   onClick={() => onSelect?.(p.id)}
                   aria-current={active === p.id ? "page" : undefined}
                   className={cx(
-                    "w-full text-left px-4 py-3 text-sm transition hover:bg-black/5 dark:hover:bg-white/5",
-                    active === p.id ? "font-semibold" : "opacity-90"
+                    HEADER_MOBILE_ITEM,
+                    active === p.id
+                      ? HEADER_MOBILE_LINK_ACTIVE
+                      : HEADER_MOBILE_LINK_INACTIVE
                   )}
                 >
-                  {p.label}
+                  <span>{p.label}</span>
+                  {active === p.id && (
+                    <span className="h-2 w-2 rounded-full bg-sky-400" />
+                  )}
                 </button>
               </li>
             ))}

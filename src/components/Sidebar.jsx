@@ -2,9 +2,16 @@ import { Mail, Github, Linkedin, Facebook } from "lucide-react";
 import { profile } from "../data/profile";
 import useTypewriter from "../hooks/useTypewriter";
 import useAge from "../hooks/useAge";
-import { TECH_COLORS, TECH_CURSOR } from "../data/techStyles";
+import { TECH_COLORS, TECH_CURSOR } from "../styles/uiStyles";
+
 import ActionPill from "./ActionPill";
 import Avatar from "./Avatar";
+import {
+  SIDEBAR_ASIDE,
+  SIDEBAR_ACTIONS,
+  SIDEBAR_SUMMARY,
+  SECTION_TITLE,
+} from "../styles/uiStyles";
 
 export default function Sidebar({ onSelectContact }) {
   const typed = useTypewriter(profile.techRotation, {
@@ -16,9 +23,9 @@ export default function Sidebar({ onSelectContact }) {
   const age = useAge(profile.birthDateISO);
 
   return (
-    <aside className="rounded-2xl bg-transparent">
+    <aside className={SIDEBAR_ASIDE}>
       <div className="space-y-4">
-        {/* ✅ Avatar component */}
+        {/* Avatar */}
         <div className="aspect-square flex items-center justify-center">
           <Avatar
             src={profile.photo}
@@ -29,34 +36,32 @@ export default function Sidebar({ onSelectContact }) {
           />
         </div>
 
-        <h2 className="text-2xl md:text-3xl font-bold">
+        <h2 className={SECTION_TITLE}>
           {profile.headlineGreeting}{" "}
-          <span className="text-blue-500">{profile.name}</span> 👋
+          <span className="text-sky-400">{profile.name}</span> 👋
         </h2>
 
-        <p className="text-sm md:text-base opacity-90 leading-relaxed">
-          {profile.summary}
-        </p>
+        <p className={SIDEBAR_SUMMARY}>{profile.summary}</p>
 
         <p className="text-base md:text-lg">
           {profile.specialtiesLabel}{" "}
           <span
-            className={`font-semibold transition-colors duration-300 dark:drop-shadow-[0_0_4px_rgba(255,255,255,0.35)] ${
-              TECH_COLORS[typed] || "text-sky-500 dark:text-sky-300"
+            className={`font-semibold transition-colors duration-300 drop-shadow-[0_0_4px_rgba(255,255,255,0.35)] ${
+              TECH_COLORS[typed] || "text-sky-400"
             }`}
           >
             {typed}
           </span>
           <span
             className={`ml-0.5 inline-block w-[1ch] border-r-2 animate-pulse ${
-              TECH_CURSOR[typed] || "border-sky-500 dark:border-sky-300"
+              TECH_CURSOR[typed] || "border-sky-400"
             }`}
             aria-hidden
           />
         </p>
 
         {/* contact & socials */}
-        <div className="flex items-center gap-2 flex-wrap">
+        <div className={SIDEBAR_ACTIONS}>
           <ActionPill as="button" onClick={onSelectContact} Icon={Mail}>
             {profile.ctas.contact}
           </ActionPill>
