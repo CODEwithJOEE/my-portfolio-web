@@ -14,18 +14,61 @@ import Skills from "./Section/Skills";
 import Education from "./Section/Education";
 import Contact from "./Section/Contact";
 import Certificates from "./Section/Certificates";
+import {
+  Home,
+  User,
+  Briefcase,
+  Phone,
+  BookOpenCheck,
+  Award,
+} from "lucide-react";
 
 // ✅ new import
 import { APP_SHELL } from "./styles/uiStyles";
 
 const PAGES = [
-  { id: "about", label: "About", component: <About /> },
-  { id: "projects", label: "Project", component: <Projects /> },
-  { id: "experience", label: "Experience", component: <Experience /> },
-  { id: "skills", label: "Skills", component: <Skills /> },
-  { id: "education", label: "Education", component: <Education /> },
-  { id: "contact", label: "Contact", component: <Contact /> },
-  { id: "certificates", label: "Certificates", component: <Certificates /> },
+  {
+    id: "about",
+    label: "About",
+    icon: <User size={16} />,
+    component: <About />,
+  },
+  {
+    id: "projects",
+    label: "Project",
+    icon: <Briefcase size={16} />,
+    component: <Projects />,
+  },
+  {
+    id: "experience",
+    label: "Experience",
+    icon: <BookOpenCheck size={16} />,
+    component: <Experience />,
+  },
+  {
+    id: "skills",
+    label: "Skills",
+    icon: <Home size={16} />,
+    component: <Skills />,
+  }, // choose any icon
+  {
+    id: "education",
+    label: "Education",
+    icon: <Award size={16} />,
+    component: <Education />,
+  },
+  {
+    id: "contact",
+    label: "Contact",
+    icon: <Phone size={16} />,
+    component: <Contact />,
+  },
+  {
+    id: "certificates",
+    label: "Certificates",
+    icon: <Award size={16} />,
+    component: <Certificates />,
+  },
 ];
 
 export default function App() {
@@ -46,10 +89,11 @@ export default function App() {
     // ✅ always use dark shell from uiStyles
     <div className={APP_SHELL}>
       <Header
-        pages={PAGES.map(({ id, label }) => ({ id, label }))}
+        pages={PAGES.map(({ id, label, icon }) => ({ id, label, icon }))}
         active={active}
         onSelect={setActive}
       />
+
       <Layout
         left={<Sidebar onSelectContact={() => setActive("contact")} />}
         right={

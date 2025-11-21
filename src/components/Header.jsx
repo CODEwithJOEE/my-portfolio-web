@@ -14,6 +14,7 @@ import {
   HEADER_MOBILE_LINK_ACTIVE,
   HEADER_MOBILE_LINK_INACTIVE,
 } from "../styles/uiStyles";
+import { Home, User, Briefcase, Phone } from "lucide-react";
 
 export default function Header({
   brand = "JOE Portfolio",
@@ -78,7 +79,6 @@ export default function Header({
     <header className={HEADER_BAR}>
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex h-16 items-center justify-between">
-          {/* Brand section */}
           <Brand
             first={brandFirst}
             rest={brandRest}
@@ -90,7 +90,6 @@ export default function Header({
 
           <DesktopNav pages={pages} active={active} onSelect={onSelect} />
 
-          {/* Right-side actions: only mobile menu now */}
           <div className="flex items-center gap-2">
             <MobileToggle
               open={open}
@@ -158,7 +157,10 @@ function DesktopNav({ pages, active, onSelect }) {
               : HEADER_DESKTOP_LINK_INACTIVE
           )}
         >
-          {p.label}
+          <div className="flex items-center gap-2">
+            {p.icon}
+            <span>{p.label}</span>
+          </div>
         </button>
       ))}
     </nav>
@@ -212,7 +214,11 @@ const MobileNav = Object.assign(
                       : HEADER_MOBILE_LINK_INACTIVE
                   )}
                 >
-                  <span>{p.label}</span>
+                  <div className="flex items-center gap-3">
+                    {p.icon}
+                    <span>{p.label}</span>
+                  </div>
+
                   {active === p.id && (
                     <span className="h-2 w-2 rounded-full bg-sky-400" />
                   )}
