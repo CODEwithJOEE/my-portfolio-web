@@ -3,7 +3,7 @@ export const projects = [
     title: "Milk Tea and Coffee Shop",
     status: "Completed",
     img: "/projects/milk-tea-and-coffee-shop.png",
-    desc: "A business site for a coffee shop with menu pages and basic ordering forms. Built with PHP, JavaScript, HTML & CSS. Data stored in MySQL.",
+    desc: "A business site for a milk tea and coffee shop with menu pages and basic ordering forms. Built with Vite and JavaScript. Data stored in MongoDB.",
     techs: ["Vite", "JavaScript", "MongoDB"],
     live: "https://github.com/CODEwithJOEE/milk-tea-and-coffee-shop",
     button: "View Projects",
