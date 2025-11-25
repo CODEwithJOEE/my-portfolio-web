@@ -1,14 +1,10 @@
 import { useState } from "react";
 
-/* This can be used in other page example:
-<Avatar src={profile.photo} alt={`${profile.name} avatar`} size="sm" ring={false} />
-<Avatar src={profile.photo} alt={`Portrait of ${profile.name}`} size="md" /> */
-
 export default function Avatar({
   src,
   alt,
   size = "full", // "full" | "md" | "sm"
-  ring = true,
+  ring = false, // default false so no border anywhere
   className = "",
 }) {
   const [error, setError] = useState(false);
@@ -19,8 +15,7 @@ export default function Avatar({
   return (
     <div
       className={`
-        overflow-hidden rounded-full flex items-center justify-center bg-white/5
-        ${ring ? "ring-2 ring-white/10" : ""}
+        overflow-hidden rounded-full flex items-center justify-center
         ${sizeClasses} ${className}
       `}
     >

@@ -31,7 +31,6 @@ export default function Sidebar({ onSelectContact }) {
             src={profile.photo}
             alt={`Portrait of ${profile.name}`}
             size="full"
-            ring
             className="scale-105"
           />
         </div>
