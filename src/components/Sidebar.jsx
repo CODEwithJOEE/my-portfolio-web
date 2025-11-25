@@ -37,7 +37,7 @@ export default function Sidebar({ onSelectContact }) {
 
         <h2 className={SECTION_TITLE}>
           {profile.headlineGreeting}{" "}
-          <span className="text-sky-400">{profile.name}</span> 👋
+          <span className="text-sky-400">{profile.name}</span>
         </h2>
 
         <p className={SIDEBAR_SUMMARY}>{profile.summary}</p>
