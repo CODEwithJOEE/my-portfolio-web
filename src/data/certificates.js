@@ -13,10 +13,10 @@ export const CERTS = [
     img: "/certificates/startup101.webp",
   },
   {
-    title: "To be Input",
-    issuer: "soon",
-    date: "2024",
-    img: "/certificates/advanced-js.jpg",
+    title: "Certificate of Excellence",
+    issuer: "OBI Services",
+    date: "August 2025",
+    img: "/certificates/august2025.png",
   },
   {
     title: "To be Input",
