@@ -29,7 +29,7 @@ export const projects = [
   {
     title: "Sample Portfolio Website Project",
     status: "Live",
-    img: "/projects/profilewebsite.jpg",
+    img: "/projects/profilewebsite.png",
     desc: "A sample profile website showcasing projects, about, education, experience, and skills.",
     techs: ["HTML", "CSS", "JavaScript"],
     live: "https://codewithjoee.github.io/WebsiteProfile2.0/",
@@ -38,7 +38,7 @@ export const projects = [
   {
     title: "Coffee Shop Website",
     status: "Completed",
-    img: "/projects/Coffee-Shop.jpg",
+    img: "/projects/Coffee-Shop.png",
     desc: "A business site for a coffee shop with menu pages and basic ordering forms. Built with PHP, JavaScript, HTML & CSS. Data stored in MySQL.",
     techs: ["PHP", "JavaScript", "MySQL"],
     live: "https://github.com/CODEwithJOEE",
@@ -47,7 +47,7 @@ export const projects = [
   {
     title: "Milk Tea Shop Website",
     status: "Completed",
-    img: "/projects/Boba-Bliss.avif",
+    img: "/projects/Boba-Bliss.png",
     desc: "Brand website for a milk tea shop including product catalog and contact form. Built with PHP, JavaScript, HTML & CSS with a MySQL database.",
     techs: ["PHP", "JavaScript", "MySQL"],
     live: "https://github.com/CODEwithJOEE",
@@ -68,7 +68,7 @@ export const projects = [
     img: "/projects/myprofilewebsite.png",
     desc: "A portfolio website showcasing projects and skills. Built with HTML, CSS and JavaScript.",
     techs: ["HTML", "CSS", "JavaScript"],
-    live: "https://codewithjoee.github.io/MyWebsiteProfile/",
+    live: "https://sample-client-portfolio.vercel.app/",
     button: "View Projects",
   },
 ];

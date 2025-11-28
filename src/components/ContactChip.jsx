@@ -1,5 +1,5 @@
 import { isExternalLink } from "../data/contactData";
-import { CONTACT_CHIP } from "../styles/uiStyles";
+import { SKILL_PILL } from "../styles/uiStyles";
 
 export default function ContactChip({ name, Icon, color, link, download }) {
   const external = !download && isExternalLink(link);
@@ -8,7 +8,7 @@ export default function ContactChip({ name, Icon, color, link, download }) {
     <a
       href={link}
       aria-label={name}
-      className={CONTACT_CHIP}
+      className={SKILL_PILL}
       {...(download ? { download: true } : {})}
       {...(external ? { target: "_blank", rel: "noopener noreferrer me" } : {})}
     >

@@ -4,7 +4,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { CERTS } from "../data/certificates";
 import CertCard from "../components/CertCard";
 import PaginationNav from "../components/PaginationNav";
-
+import {
+  SECTION,
+  SECTION_TITLE,
+  BTN_PILL,
+  BTN_PILL_ACTIVE,
+} from "../styles/uiStyles";
 export default function Certificates() {
   const pageSize = 2;
   const [page, setPage] = useState(1);
@@ -16,11 +21,11 @@ export default function Certificates() {
   const pageItems = useMemo(() => CERTS.slice(start, end), [start, end]);
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-2xl md:text-3xl font-bold text-center">
-        Certificates
-      </h2>
-      <p className="text-center opacity-80">Proof of skills and achievements</p>
+    <div className={SECTION}>
+      <h2 className={SECTION_TITLE}>Certificates</h2>
+      <p className={"text-center opacity-80"}>
+        Proof of skills and achievements
+      </p>
 
       <AnimatePresence mode="wait">
         <motion.div

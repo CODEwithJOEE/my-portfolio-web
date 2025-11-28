@@ -97,6 +97,18 @@ export const HEADER_MOBILE_LINK_ACTIVE = "font-semibold text-sky-400";
 export const HEADER_MOBILE_LINK_INACTIVE = "opacity-85";
 
 // ============================================================================
+// Skills ICONS
+// ============================================================================
+export const SKILL_PILL = `
+  inline-flex items-center gap-2 rounded-full
+  px-3 py-1 text-sm
+  border border-white/10
+  bg-white/5
+  dark:bg-white/5
+  transition-all hover:scale-105 hover:shadow-sm
+`;
+
+// ============================================================================
 // ACTION PILL (for sidebar social/contact buttons)
 // ============================================================================
 export const ACTION_PILL =

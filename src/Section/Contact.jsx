@@ -5,6 +5,7 @@ import { MdContentCopy } from "react-icons/md";
 import ContactChip from "../components/ContactChip";
 import { CONTACTS, EMAIL } from "../data/contactData";
 import { PERSON_SCHEMA } from "../data/personSchema";
+import { SKILL_PILL, SECTION, SECTION_TITLE } from "../styles/uiStyles";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -21,9 +22,9 @@ export default function Contact() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className={SECTION}>
       <header>
-        <h2 className="text-2xl md:text-3xl font-bold">Contact</h2>
+        <h2 className={SECTION_TITLE}>Contact</h2>
         <p className="opacity-80 text-sm md:text-base">
           Reach me on any platform below.{" "}
           <span className="opacity-70">I typically reply within 24 hours.</span>
@@ -37,18 +38,7 @@ export default function Contact() {
         ))}
 
         {/* Copy email button */}
-        <button
-          type="button"
-          onClick={copyEmail}
-          className="
-            inline-flex items-center gap-2 px-4 py-2 rounded-xl
-            border border-gray-200 dark:border-white/10
-            bg-white dark:bg-white/5 hover:bg-gray-50 dark:hover:bg-white/10
-            shadow-sm dark:shadow-none text-sm font-medium transition
-            focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2
-            dark:focus:ring-offset-slate-900
-          "
-        >
+        <button type="button" onClick={copyEmail} className={SKILL_PILL}>
           <MdContentCopy size={18} className="opacity-80" />
           {copied ? "Email copied!" : "Copy Email"}
         </button>

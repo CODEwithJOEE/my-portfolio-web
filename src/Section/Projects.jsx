@@ -4,8 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import MetricCard from "../components/MetricCard";
 
 import { projects } from "../data/projects";
-import { STATUS_STYLES, TECH_STYLES } from "../styles/uiStyles";
-import { CARD, CHIP, BTN_PRIMARY } from "../styles/uiStyles";
+import {
+  STATUS_STYLES,
+  TECH_STYLES,
+  CARD,
+  CHIP,
+  BTN_PRIMARY,
+} from "../styles/uiStyles";
 import PaginationNav from "../components/PaginationNav";
 
 export default function Projects() {
@@ -67,7 +72,6 @@ export default function Projects() {
           totalPages={totalPages}
           onPageChange={setPage}
           ariaLabel="Projects pagination"
-          pageActiveClass="bg-sky-600 text-white border-sky-600"
         />
       </div>
     </div>
@@ -79,11 +83,11 @@ function ProjectCard({ title, status, img, desc, techs, live, button }) {
     <article className={`${CARD} p-3 flex flex-col`}>
       {/* Image + status */}
       <div className="relative">
-        <div className="rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white/5">
+        <div className="rounded-xl overflow-hidden">
           <img
             src={img}
             alt={title}
-            className="w-full h-44 object-cover"
+            className="w-full h-44 object-contain object-center"
             loading="lazy"
             decoding="async"
             onError={(e) => {

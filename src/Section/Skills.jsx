@@ -3,13 +3,7 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { skillsGroups } from "../data/skillsData.js";
 
-import {
-  SECTION,
-  SECTION_TITLE,
-  BTN_PILL,
-  BTN_PILL_ACTIVE,
-  CARD,
-} from "../styles/uiStyles";
+import { SECTION, SECTION_TITLE, SKILL_PILL, CARD } from "../styles/uiStyles";
 import PaginationNav from "../components/PaginationNav";
 
 export default function Skills() {
@@ -46,10 +40,7 @@ export default function Skills() {
                 {group.skills.map((s) => {
                   const Icon = s.icon;
                   return (
-                    <span
-                      key={s.name}
-                      className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-white/10 px-3 py-1 text-sm bg-white/50 dark:bg-white/5 transition-all hover:scale-105 hover:shadow-sm"
-                    >
+                    <span key={s.name} className={SKILL_PILL}>
                       {Icon && (
                         <span
                           className="text-lg"
@@ -75,10 +66,6 @@ export default function Skills() {
           totalPages={totalPages}
           onPageChange={setPage}
           ariaLabel="Skills pagination"
-          navClass="inline-flex items-center gap-2"
-          prevNextClass={BTN_PILL}
-          pageClass={BTN_PILL}
-          pageActiveClass={BTN_PILL_ACTIVE} // ← YOU MISSED THIS!!
         />
       </div>
     </div>

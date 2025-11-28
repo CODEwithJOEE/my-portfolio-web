@@ -6,7 +6,12 @@ import ExperienceCard from "../components/ExperienceCard";
 import { experienceSummary } from "../data/experienceSummary";
 import { experienceItems } from "../data/experienceItems";
 import PaginationNav from "../components/PaginationNav";
-
+import {
+  SECTION,
+  SECTION_TITLE,
+  BTN_PILL,
+  BTN_PILL_ACTIVE,
+} from "../styles/uiStyles";
 export default function Experience() {
   const [page, setPage] = useState(1);
   const totalPages = experienceItems.length;
@@ -14,8 +19,8 @@ export default function Experience() {
   const current = useMemo(() => experienceItems[page - 1], [page]);
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl md:text-3xl font-bold">Experience</h2>
+    <div className={SECTION}>
+      <h2 className={SECTION_TITLE}>Experience</h2>
 
       <ul className="list-disc pl-6 space-y-2">
         {experienceSummary.map((s) => (
@@ -47,8 +52,6 @@ export default function Experience() {
           totalPages={totalPages}
           onPageChange={setPage}
           ariaLabel="Experience pagination"
-          // add this
-          pageActiveClass="bg-sky-600 text-white border-sky-600"
         />
       </div>
     </div>

@@ -1,21 +1,17 @@
-// src/components/PaginationNav.jsx
+import { BTN_PILL, BTN_PILL_ACTIVE } from "../styles/uiStyles";
 export default function PaginationNav({
   page,
   totalPages,
   onPageChange,
   ariaLabel = "Pagination",
   navClass = "inline-flex items-center gap-2",
-  prevNextClass = "px-3 py-2 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 disabled:opacity-50",
-  pageClass,
-  pageActiveClass,
+  // Defaults now come from uiStyles
+  prevNextClass = BTN_PILL,
+  pageClass = BTN_PILL,
+  pageActiveClass = BTN_PILL_ACTIVE,
 }) {
-  // base styles for page buttons (if not provided)
-  const basePageClass =
-    pageClass ||
-    "px-3 py-2 rounded-xl border text-sm bg-white dark:bg-white/5 border-gray-200 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/10";
-
-  const activePageClass =
-    pageActiveClass || "bg-sky-600 text-white border-sky-600";
+  const basePageClass = pageClass;
+  const activePageClass = pageActiveClass;
 
   const go = (p) => {
     const next = Math.min(Math.max(1, p), totalPages);
