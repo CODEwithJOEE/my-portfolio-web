@@ -32,6 +32,7 @@ export default function Sidebar({ onSelectContact }) {
             alt={`Portrait of ${profile.name}`}
             size="full"
             className="scale-105"
+            isLCP
           />
         </div>
 
