@@ -5,7 +5,7 @@ export const PERSON_SCHEMA = {
   "@type": "Person",
   name: "Joemarie Ronday",
   jobTitle: "Front-end Web Developer",
-  url: "https://joe-portfolio-website.vercel.app/",
+  url: "https://portfolio-of-joe.vercel.app/",
   email: `mailto:${EMAIL}`,
   telephone: "+639073195155",
   sameAs: [

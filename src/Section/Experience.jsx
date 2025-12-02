@@ -6,12 +6,7 @@ import ExperienceCard from "../components/ExperienceCard";
 import { experienceSummary } from "../data/experienceSummary";
 import { experienceItems } from "../data/experienceItems";
 import PaginationNav from "../components/PaginationNav";
-import {
-  SECTION,
-  SECTION_TITLE,
-  BTN_PILL,
-  BTN_PILL_ACTIVE,
-} from "../styles/uiStyles";
+import { SECTION, SECTION_TITLE } from "../styles/uiStyles";
 export default function Experience() {
   const [page, setPage] = useState(1);
   const totalPages = experienceItems.length;

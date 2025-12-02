@@ -4,12 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { CERTS } from "../data/certificates";
 import CertCard from "../components/CertCard";
 import PaginationNav from "../components/PaginationNav";
-import {
-  SECTION,
-  SECTION_TITLE,
-  BTN_PILL,
-  BTN_PILL_ACTIVE,
-} from "../styles/uiStyles";
+import { SECTION, SECTION_TITLE } from "../styles/uiStyles";
 export default function Certificates() {
   const pageSize = 2;
   const [page, setPage] = useState(1);
