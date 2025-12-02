@@ -9,7 +9,7 @@ export const profile = {
   birthDateISO: "2001-10-27",
   address: "Sitio San Juan, Don Jose Aguirre, Manukan, Zamboanga del Norte",
   statusLine: "Single",
-  photo: "/images/profile-logo.webp",
+  photo: "/images/logo-profile.webp",
   links: {
     github: "https://github.com/CODEwithJOEE",
     linkedin: "https://ph.linkedin.com/in/joemarie-ronday-908a9a360",
