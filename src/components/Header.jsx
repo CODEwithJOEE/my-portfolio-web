@@ -206,6 +206,8 @@ const MobileNav = Object.assign(
                   role="menuitem"
                   onClick={() => onSelect?.(p.id)}
                   aria-current={active === p.id ? "page" : undefined}
+                  disabled={!open} // 👈 not focusable when closed
+                  tabIndex={open ? 0 : -1} // 👈 extra safety
                   className={cx(
                     HEADER_MOBILE_ITEM,
                     active === p.id
