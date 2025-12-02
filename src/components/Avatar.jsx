@@ -21,7 +21,7 @@ export default function Avatar({
           alt={alt}
           // 👇 LCP image: eager + high priority
           loading={isLCP ? "eager" : "lazy"}
-          fetchpriority={isLCP ? "high" : "auto"}
+          fetchPriority={isLCP ? "high" : "auto"}
           decoding="async"
           className={PROFILE}
           onError={() => setError(true)}
