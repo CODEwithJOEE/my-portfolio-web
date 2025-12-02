@@ -1,10 +1,9 @@
 import { useState } from "react";
-
+import { PROFILE, PROFILE_SECTION, NO_IMAGE } from "../styles/uiStyles";
 export default function Avatar({
   src,
   alt,
   size = "full", // "full" | "md" | "sm"
-  ring = false, // default false so no border anywhere
   className = "",
 }) {
   const [error, setError] = useState(false);
@@ -14,8 +13,7 @@ export default function Avatar({
 
   return (
     <div
-      className={`
-        overflow-hidden rounded-full flex items-center justify-center
+      className={`${PROFILE_SECTION}
         ${sizeClasses} ${className}
       `}
     >
@@ -25,13 +23,11 @@ export default function Avatar({
           alt={alt}
           loading="lazy"
           decoding="async"
-          className="object-cover object-top w-full h-full rounded-full"
+          className={PROFILE}
           onError={() => setError(true)}
         />
       ) : (
-        <div className="text-xs text-gray-400 dark:text-gray-500 text-center p-2">
-          No Image
-        </div>
+        <div className={NO_IMAGE}>No Image</div>
       )}
     </div>
   );

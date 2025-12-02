@@ -46,6 +46,17 @@ export const BTN_PILL_ACTIVE =
 export const CHIP =
   "inline-flex items-center rounded-full px-2.5 py-1 text-xs border border-white/10 " +
   "bg-slate-900/70";
+//==============================================================================
+// AVATAR
+//=============================================================================
+
+export const PROFILE_SECTION =
+  "overflow-hidden rounded-full flex items-center justify-center";
+
+export const PROFILE = "object-cover object-top w-full h-full rounded-full";
+
+export const NO_IMAGE =
+  "text-xs text-gray-400 dark:text-gray-500 text-center p-2";
 
 // ============================================================================
 // APP SHELL
@@ -214,6 +225,7 @@ export const TECH_STYLES = {
   MongoDB: "bg-green-500/15 text-green-300 border border-green-400/20",
   Vite: "bg-purple-500/15 text-purple-300 border border-purple-400/20",
   Java: "bg-orange-500/15 text-orange-300 border border-orange-400/20",
+  TailwindCss: "bg-sky-500/15 text-sky-300 border border-sky-400/20",
 };
 
 // ============================================================================
